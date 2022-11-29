@@ -1,4 +1,4 @@
-package main.java.hex;
+package plateau;
 
 public class Plateau {
 	private final static int TAILLE_MAX = 26;

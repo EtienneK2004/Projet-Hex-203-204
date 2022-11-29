@@ -1,11 +1,11 @@
-package test.java.hex;
+package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.java.hex.Pion;
-import main.java.hex.Plateau;
+import plateau.Pion;
+import plateau.Plateau;
 
 class PlateauTest {
 	private String pos1 = ".X..XOXXOO.OX..."; 
