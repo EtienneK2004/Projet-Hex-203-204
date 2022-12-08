@@ -7,10 +7,11 @@ public class Hex {
 	
 	public Hex(int taille) {
 		p = new Plateau(taille);
+		//TODO
 	}
 	
 	//Le joueur est implicite et géré par le plateau
-	public void jouerCoup(int x, int y) {
+	public void jouerCoup(String coord) {
 		//TODO
 	}
 	
@@ -19,7 +20,7 @@ public class Hex {
 		return 0;
 	}
 	
-	public int getVal(int x, int y) {
+	public int getVal(String coord) {
 		//TODO
 		return 0;
 	}

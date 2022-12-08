@@ -1,7 +1,8 @@
 package ia;
 
 public class IA {
-	public int[] getCoup(String plateau) {
+	public String getCoup(String plateau) {
+		//TODO
 		return null;
 	}
 }
