@@ -6,6 +6,9 @@ public class Plateau {
 	private final static int PREMIERE_COLONNE = 'A';
 	private final static int PREMIERE_LIGNE = '1';
 	
+	private final static int CASE_AUTOUR = 8;
+	private final static int COORD_AUTOUR [][] = {{-1,-1},{0,-1},{1,-1},{-1,0},{1,0},{1,-1},{1,0},{1,1}};
+
 	// le premier joueur relie la premiere et la derniere ligne
 	// le second joueur relie la premiere et la derniere colonne
 	
@@ -133,8 +136,21 @@ public class Plateau {
 		
 	}
 
-
-
-
-
+	public int gagnant(String coord) {
+		int Ligne = 0;
+		int Colonne = 0;
+		if (getCase(coord) == Pion.Croix) {
+			for (int i = 0;i<CASE_AUTOUR; ++i) {
+				Colonne = coord.charAt(0) - PREMIERE_COLONNE + COORD_AUTOUR[i][0];
+				Ligne = coord.charAt(0) - PREMIERE_LIGNE + COORD_AUTOUR[i][1];
+				
+				if (t[Colonne][Ligne] == Pion.Croix) {
+					
+				}
+			}
+		
+		}
+		return 0;
+	}
+	
 }

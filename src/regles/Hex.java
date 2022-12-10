@@ -12,12 +12,11 @@ public class Hex {
 	
 	//Le joueur est implicite et géré par le plateau
 	public void jouerCoup(String coord) {
-		//TODO
+		p.jouer(coord);
 	}
 	
-	public int gagnant() {
-		//TODO
-		return 0;
+	public int gagnant(String coord) {
+		return p.gagnant(coord);
 	}
 	
 	public int getVal(String coord) {
@@ -26,7 +25,7 @@ public class Hex {
 	}
 	
 	public String getPlateau() {
-		//TODO
+		System.out.println(p);
 		return null;
 	}
 }
