@@ -21,11 +21,15 @@ public class Hex {
 	
 	public int getVal(String coord) {
 		//TODO
+		
 		return 0;
 	}
 	
 	public String getPlateau() {
-		System.out.println(p);
 		return null;
+	}
+	
+	public String toString() {
+		return p.toString();
 	}
 }
