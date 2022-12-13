@@ -1,6 +1,7 @@
 package regles;
 
 import plateau.Plateau;
+import plateau.Pion;
 
 public class Hex {
 	private Plateau p;
@@ -11,8 +12,9 @@ public class Hex {
 	}
 	
 	//Le joueur est implicite et géré par le plateau
-	public void jouerCoup(String coord) {
+	public boolean jouerCoup(String coord) {
 		p.jouer(coord);
+		return true;
 	}
 	
 	public int gagnant(String coord) {
@@ -26,7 +28,13 @@ public class Hex {
 	}
 	
 	public String getPlateau() {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		for(int i=0; i<p.taille(); i++) {
+			for(int j=0; j<p.taille(); j++) {
+				sb.append(p.getCase(((char)('A'+i))+""+(j+1)));
+			}
+		}
+		return sb.toString();
 	}
 	
 	public String toString() {
