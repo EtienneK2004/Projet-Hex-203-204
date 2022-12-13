@@ -26,8 +26,14 @@ public class Hex {
 	}
 	
 	public int getVal(String coord) {
-		//TODO
-		
+		switch(p.getCase(coord)) {
+		case Vide:
+			return 0;
+		case Croix:
+			return 1;
+		case Rond:
+			return -1;
+		}
 		return 0;
 	}
 	
