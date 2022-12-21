@@ -11,6 +11,10 @@ public class Hex {
 		//TODO
 	}
 	
+	public int getJoueur() {
+		return p.getJoueur();
+	}
+	
 	//Le joueur est implicite et géré par le plateau
 	public void jouerCoup(String coord) throws IllegalArgumentException{
 		if(!estValide(coord)) throw new IllegalArgumentException();

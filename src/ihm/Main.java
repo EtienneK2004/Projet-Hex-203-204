@@ -1,32 +1,57 @@
 package ihm;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import java.util.Scanner;
 
-import plateau.Plateau;
 import regles.Hex;
 
 public class Main {
 	private static Hex jeu;
 	private static final int TAILLE=4;
+	private static String[] joueurs;
+	
 	
 	
 	public static void main(String[] args) {
 		jeu = new Hex(TAILLE);
+		joueurs = new String[2];
 		boolean cond = false; //C'est pour test
 		Scanner sc = new Scanner(System.in);
-		
 		while(cond == false) {
 			String s = sc.next();
 			jeu.jouerCoup(s);
-			System.out.println(jeu.getPlateau());
+			System.out.println(jeu);
 			if (jeu.gagnant(s)!=0) {
 				cond = true;
 			}
 		}
 		
 		sc.close();
+	}
+	
+	private static void debut(Scanner sc) {
+		System.out.println(IHMStrings.Bienvenue);
+		System.out.println(IHMStrings.NomJoueur1);
+		joueurs[0] = sc.next();
+		System.out.println(IHMStrings.NomJoueur2);
+		joueurs[1] = sc.next();
+	}
+	
+	private static void tour(Scanner sc) {
+		System.out.println(jeu);
+		System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Jouer);
+		boolean valide = false;
+		String coup = "";
+		while(!valide) {
+			coup = sc.next();
+			valide = jeu.estValide(coup);
+			if(!valide) System.out.println(IHMStrings.CaseInvalide);
+		}
+		if(jeu.gagnant(coup) == jeu.getJoueur()) {
+			System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Gagne);
+			System.out.println(IHMStrings.Recommencer);
+		}
 	}
 
 }

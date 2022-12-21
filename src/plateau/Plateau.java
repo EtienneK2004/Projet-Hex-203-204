@@ -140,5 +140,9 @@ public class Plateau {
 		
 		return 0;
 	}
+
+	public int getJoueur() {
+		return this.joueur;
+	}
 	
 }
