@@ -136,11 +136,6 @@ public class Plateau {
 		
 	}
 
-	public int gagnant(String coord) {
-		
-		return 0;
-	}
-
 	public int getJoueur() {
 		return this.joueur;
 	}

@@ -16,14 +16,13 @@ public class Main {
 	public static void main(String[] args) {
 		jeu = new Hex(TAILLE);
 		joueurs = new String[2];
-		boolean cond = false; //C'est pour test
+		boolean noGagnant = false; 
 		Scanner sc = new Scanner(System.in);
-		while(cond == false) {
-			String s = sc.next();
-			jeu.jouerCoup(s);
-			System.out.println(jeu);
-			if (jeu.gagnant(s)!=0) {
-				cond = true;
+		debut(sc);
+		while(noGagnant == false) {
+			if (noGagnant = tour(sc)) {
+				System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Gagne);
+				System.out.println(IHMStrings.Recommencer);
 			}
 		}
 		
@@ -38,7 +37,7 @@ public class Main {
 		joueurs[1] = sc.next();
 	}
 	
-	private static void tour(Scanner sc) {
+	private static boolean tour(Scanner sc) {
 		System.out.println(jeu);
 		System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Jouer);
 		boolean valide = false;
@@ -48,10 +47,8 @@ public class Main {
 			valide = jeu.estValide(coup);
 			if(!valide) System.out.println(IHMStrings.CaseInvalide);
 		}
-		if(jeu.gagnant(coup) == jeu.getJoueur()) {
-			System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Gagne);
-			System.out.println(IHMStrings.Recommencer);
-		}
+		jeu.jouerCoup(coup);
+		return jeu.gagnant() == jeu.getJoueur();
 	}
 
 }

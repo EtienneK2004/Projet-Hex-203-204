@@ -1,32 +1,41 @@
 package regles;
 
 import plateau.Plateau;
+import regles.ilot.GestionIlots;
+
 import plateau.Pion;
 
 public class Hex {
 	private Plateau p;
+	private GestionIlots gi;
 	
 	public Hex(int taille) {
-		p = new Plateau(taille);
-		//TODO
+		this.p = new Plateau(taille);
+		this.gi = new GestionIlots(taille);
 	}
 	
 	public int getJoueur() {
 		return p.getJoueur();
 	}
 	
-	//Le joueur est implicite et géré par le plateau
+	
 	public void jouerCoup(String coord) throws IllegalArgumentException{
 		if(!estValide(coord)) throw new IllegalArgumentException();
 		p.jouer(coord);
+		gi.ajouterCase(coord.charAt(0) - 'A', coord.charAt(1) - '1', p.getJoueur());
 	}
 	
 	public boolean estValide(String coord) {
 		return p.estValide(coord) && p.getCase(coord)==Pion.Vide;
 	}
 	
-	public int gagnant(String coord) {
-		return p.gagnant(coord);
+	
+	/**
+	 * Determine le gagnant, 0 pour le joueur 1, 1 pour le joueur 2, -1 si il n'y a pas de gagnant
+	 * @return int
+	 */
+	public int gagnant() {
+		return gi.gagnant();
 	}
 	
 	public int getVal(String coord) {
@@ -54,4 +63,6 @@ public class Hex {
 	public String toString() {
 		return p.toString();
 	}
+	
+	
 }
