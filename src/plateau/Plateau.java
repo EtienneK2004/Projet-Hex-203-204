@@ -6,8 +6,7 @@ public class Plateau {
 	private final static int PREMIERE_COLONNE = 'A';
 	private final static int PREMIERE_LIGNE = '1';
 	
-	private final static int CASE_AUTOUR = 6;
-	private final static int COORD_AUTOUR [][] = {{0,-1},{1,-1},{-1,0},{1,0},{1,-1},{1,0}};
+	
 
 	// le premier joueur relie la premiere et la derniere ligne
 	// le second joueur relie la premiere et la derniere colonne

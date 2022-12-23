@@ -22,6 +22,7 @@ class HexTest {
 		hex.jouerCoup("E5");
 		assertEquals(new Plateau(5, hex.getPlateau()).toString(), hex.toString());
 		assertFalse(hex.estValide("H6"));
+		
 	}
 
 }
