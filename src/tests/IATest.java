@@ -5,13 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import ia.IAChatGPT;
+import ia.IAHex;
+import ia.IARandom;
 import plateau.Plateau;
 
 class IATest {
 
 	@Test
 	void test() {
-		IAChatGPT ia = new IAChatGPT();
+		IAHex ia = new IAChatGPT();
 		String[] ps = {
 				"X.OX.OO.XX.OO.X.",
 				".XO.XO.O.X.X..OX",
@@ -32,6 +34,13 @@ class IATest {
 		
 		System.out.println(IAChatGPT.checkWin(board, -1));
 		
+		System.out.println("--------------------RANDOM-------------------");
+		
+		ia = new IARandom();
+		for(String p : ps) {
+			System.out.println(new Plateau(4, p));
+			System.out.println(ia.getCoup(p));
+		}
 	}
 
 }
