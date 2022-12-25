@@ -1,16 +1,14 @@
 package regles;
 
-import plateau.Plateau;
 import regles.ilot.GestionIlots;
-
-import plateau.Pion;
+import plateau.IPlateau;
 
 public class Hex {
-	private Plateau p;
+	private IPlateau p;
 	private GestionIlots gi;
 	
 	public Hex(int taille) {
-		this.p = new Plateau(taille);
+		this.p = IPlateau.getPlateau(taille);
 		this.gi = new GestionIlots(taille);
 	}
 	
@@ -26,7 +24,7 @@ public class Hex {
 	}
 	
 	public boolean estValide(String coord) {
-		return p.estValide(coord) && p.getCase(coord)==Pion.Vide;
+		return p.estValide(coord);
 	}
 	
 	

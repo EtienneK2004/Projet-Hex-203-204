@@ -1,6 +1,6 @@
 package plateau;
 
-public class Plateau {
+public class Plateau implements IPlateau{
 	private final static int TAILLE_MAX = 26;
 	private final static int NB_JOUEURS = 2;
 	private final static int PREMIERE_COLONNE = 'A';
