@@ -1,12 +1,17 @@
 package ia;
 
-public class IA {
+/**
+ * 
+ * @author ChatGPT, Etienne KITA
+ *
+ */
+
+public class IAChatGPT extends IAHex{
 	
 	
-	private final static int COORD_AUTOUR [][] = {{0,-1},{1,-1},{-1,0},{1,0},{1,-1},{1,0}};
 	private static final int MAX_RECURSION = 5;
 	
-	
+	@Override
 	public String getCoup(String plateau) {
 		int[][] board = StringToBoard(plateau);
 		int [] coup = findOptimalMove(board, trouverJoueur(board));
@@ -88,7 +93,7 @@ public class IA {
 	        value += 1;
 	    }
 	    // On ajoute une valeur supplémentaire si la case est éloignée des coins du plateau
-	    value += IA.getDistanceToClosestCorner(board, i, j);
+	    value += IAChatGPT.getDistanceToClosestCorner(board, i, j);
 	    // On retourne la valeur finale
 	    return value;
 	}

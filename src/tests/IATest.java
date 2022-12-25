@@ -4,14 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import ia.IA;
+import ia.IAChatGPT;
 import plateau.Plateau;
 
 class IATest {
 
 	@Test
 	void test() {
-		IA ia = new IA();
+		IAChatGPT ia = new IAChatGPT();
 		String[] ps = {
 				"X.OX.OO.XX.OO.X.",
 				".XO.XO.O.X.X..OX",
@@ -30,7 +30,7 @@ class IATest {
 		    {0, 0, -1, 1}
 		};
 		
-		System.out.println(IA.checkWin(board, -1));
+		System.out.println(IAChatGPT.checkWin(board, -1));
 		
 	}
 
