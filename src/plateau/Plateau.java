@@ -19,8 +19,8 @@ public class Plateau implements IPlateau{
 	}
 	
 	public void jouer(String coord) {
-		assert estValide(coord);
-		assert getCase(coord) == Pion.Vide;
+		if(!estValide(coord)) throw new IllegalArgumentException("Case hors plateau");
+		if(getCase(coord) != Pion.Vide) throw new IllegalArgumentException("Case déjà occupée");
 		Pion pion = Pion.values()[joueur];
 		int col = getColonne (coord);
 		int lig = getLigne(coord);
@@ -30,7 +30,7 @@ public class Plateau implements IPlateau{
 	
 	public static int getTaille(String pos) {
 		int taille = (int) Math.sqrt(pos.length());
-		assert taille * taille == pos.length();
+		if(taille * taille != pos.length()) throw new IllegalArgumentException();
 		return taille;
 	}
 
@@ -43,11 +43,11 @@ public class Plateau implements IPlateau{
 			return false;
 		if (lig <0 || lig >= taille())
 			return false;
-		return true;
+		return t[col][lig] == Pion.Vide;
 	}
 	
 	public Pion getCase(String coord) {
-		assert estValide(coord);
+		if(!estValide(coord)) throw new IllegalArgumentException();
 		int col = getColonne (coord);
 		int lig = getLigne(coord);
 		return t[col][lig];
@@ -62,7 +62,7 @@ public class Plateau implements IPlateau{
 	}
 
 	public Plateau(int taille) {
-		assert taille > 0 && taille <= TAILLE_MAX;
+		if(!(taille > 0 && taille <= TAILLE_MAX)) throw new IllegalArgumentException();
 		t = new Pion [taille][taille];
 		
 		for (int lig = 0; lig < taille(); ++lig)
@@ -71,7 +71,7 @@ public class Plateau implements IPlateau{
 	}
 	
 	public Plateau(int taille, String pos) {
-		assert taille > 0 && taille <= TAILLE_MAX;
+		if(!(taille > 0 && taille <= TAILLE_MAX)) throw new IllegalArgumentException();
 		t = new Pion [taille][taille];
 		
 		String[] lignes = decouper(pos);
