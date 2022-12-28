@@ -14,7 +14,7 @@ public class GestionIlots {
 	}
 	
 	public void ajouterCase(int x, int y, int joueur) {
-		CaseHexa c = new CaseHexa(x, y, joueur);
+		Ilot c = new CaseHexa(x, y, joueur);
 		boolean adj = false;
 		for(Ilot i : ilots) {
 			if(i.joueur() == joueur && i.isAdjacent(c)) {
@@ -28,7 +28,7 @@ public class GestionIlots {
 			return;
 			
 		}
-		CompositeIlot ic = new CompositeIlot();
+		Ilot ic = new CompositeIlot();
 		ic.add(c);
 		ilots.add(ic);
 	}
@@ -37,10 +37,10 @@ public class GestionIlots {
 		boolean changements = true;
 		while(changements) {
 			changements = false;
-			for(Ilot i : ilots) {
+			for(int i = 0; i<ilots.size(); i++) {
 				for(Ilot j : new LinkedList<>(ilots)) {
-					if(!i.equals(j) && i.isAdjacent(j)) {
-						i.add(j);
+					if(!ilots.get(i).equals(j) && ilots.get(i).isAdjacent(j)) {
+						ilots.get(i).add(j);
 						ilots.remove(j);
 						changements = true;
 					}
