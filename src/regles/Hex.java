@@ -2,6 +2,7 @@ package regles;
 
 import regles.ilot.GestionIlots;
 import plateau.IPlateau;
+import plateau.Pion;
 
 public class Hex {
 	private IPlateau p;
@@ -27,7 +28,10 @@ public class Hex {
 		return p.estValide(coord);
 	}
 	
-	
+	public boolean estCoupValide(String coord) {
+        return estValide(coord) && p.getCase(coord) == Pion.Vide;
+
+    }
 	/**
 	 * Determine le gagnant, 0 pour le joueur 1, 1 pour le joueur 2, -1 si il n'y a pas de gagnant
 	 * @return int

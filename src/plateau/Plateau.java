@@ -12,7 +12,7 @@ public class Plateau implements IPlateau{
 	// le second joueur relie la premiere et la derniere colonne
 	
 	private Pion[][] t;
-	private int joueur = 0; // prochain à jouer
+	private int joueur = 0; // prochain ï¿½ jouer
 	
 	private void suivant() {
 		joueur = (joueur +1) % NB_JOUEURS;
@@ -20,7 +20,7 @@ public class Plateau implements IPlateau{
 	
 	public void jouer(String coord) {
 		if(!estValide(coord)) throw new IllegalArgumentException("Case hors plateau");
-		if(getCase(coord) != Pion.Vide) throw new IllegalArgumentException("Case déjà occupée");
+		if(getCase(coord) != Pion.Vide) throw new IllegalArgumentException("Case dï¿½jï¿½ occupï¿½e");
 		Pion pion = Pion.values()[joueur];
 		int col = getColonne (coord);
 		int lig = getLigne(coord);
@@ -35,16 +35,16 @@ public class Plateau implements IPlateau{
 	}
 
 	public boolean estValide(String coord) {
-		if ( coord.length() !=2)
-			return false;
-		int col = getColonne (coord);
-		int lig = getLigne(coord);
-		if (col <0 || col >= taille())
-			return false;
-		if (lig <0 || lig >= taille())
-			return false;
-		return t[col][lig] == Pion.Vide;
-	}
+        if ( coord.length() !=2)
+            return false;
+        int col = getColonne (coord);
+        int lig = getLigne(coord);
+        if (col <0 || col >= taille())
+            return false;
+        if (lig <0 || lig >= taille())
+            return false;
+        return true;
+    }
 	
 	public Pion getCase(String coord) {
 		if(!estValide(coord)) throw new IllegalArgumentException();
