@@ -26,14 +26,12 @@ public class GestionIlots {
 		}
 		if(adj) {
 			fusions();
-			System.out.println(ilots);
 			return;
 			
 		}
 		Ilot ic = new CompositeIlot();
 		ic.add(c);
 		ilots.add(ic);
-		System.out.println(ilots);
 	}
 	
 	private void fusions() {
@@ -47,10 +45,8 @@ public class GestionIlots {
 				for(int j = i+1; j<ilots.size(); j++) {
 					ij = ilots.get(j);
 					if(!ii.equals(ij) && ii.isAdjacent(ij) && ii.isMemeJoueur(ij)) {
-						System.out.println(ii+" est adj "+ij);
 						ii.add(ij);
 						
-						System.out.println("Je remove "+ij);
 						ilots.remove(j);
 						changements = true;
 					}
