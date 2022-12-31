@@ -14,6 +14,7 @@ public class GestionIlots {
 	}
 	
 	public void ajouterCase(int x, int y, int joueur) {
+		System.out.println(joueur);
 		Ilot c = new CaseHexa(x, y, joueur);
 		boolean adj = false;
 		for(Ilot i : ilots) {
@@ -25,22 +26,31 @@ public class GestionIlots {
 		}
 		if(adj) {
 			fusions();
+			System.out.println(ilots);
 			return;
 			
 		}
 		Ilot ic = new CompositeIlot();
 		ic.add(c);
 		ilots.add(ic);
+		System.out.println(ilots);
 	}
 	
 	private void fusions() {
 		boolean changements = true;
 		while(changements) {
 			changements = false;
+			Ilot ii;
+			Ilot ij;
 			for(int i = 0; i<ilots.size(); i++) {
-				for(Ilot j : new LinkedList<>(ilots)) {
-					if(!ilots.get(i).equals(j) && ilots.get(i).isAdjacent(j)) {
-						ilots.get(i).add(j);
+				ii = ilots.get(i);
+				for(int j = i+1; j<ilots.size(); j++) {
+					ij = ilots.get(j);
+					if(!ii.equals(ij) && ii.isAdjacent(ij) && ii.isMemeJoueur(ij)) {
+						System.out.println(ii+" est adj "+ij);
+						ii.add(ij);
+						
+						System.out.println("Je remove "+ij);
 						ilots.remove(j);
 						changements = true;
 					}
