@@ -23,18 +23,17 @@ public class Main {
 	private static void debut(Scanner sc) {
 		System.out.println(IHMStrings.Bienvenue);
 		System.out.println(IHMStrings.DmdRegle);
-		reponse = sc.next().toLowerCase();
-		if(reponse.equals("yes") || reponse.equals("oui") || reponse.equals("ok") || reponse.equals("oui je veux"))
+		reponse = sc.next().toUpperCase();
+		if(reponse.equals(IHMStrings.SaisieOui.toString()))
 		{
 			System.out.println(IHMStrings.Regle);
 			System.out.println(IHMStrings.DmdRegle1);
-			reponse = sc.next().toLowerCase();
-			if(reponse.equals("yes") || reponse.equals("oui") || reponse.equals("ok") || reponse.equals("oui je veux")) 
+			reponse = sc.next().toUpperCase();
+			if(reponse.equals(IHMStrings.SaisieOui.toString())) 
 			{
 				System.out.println(IHMStrings.Regle1);
 				System.out.println(IHMStrings.Regle2);
 				System.out.println(IHMStrings.Regle3);
-				System.out.println(IHMStrings.Commencement);
 			}
 		}
 		System.out.println(IHMStrings.NomJoueur1);
@@ -49,13 +48,11 @@ public class Main {
 		boolean noGagnant = false;
 		while(noGagnant == false) {
 			if (noGagnant = tour(sc)) {
-				System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Gagne);
+				System.out.println(joueurs[(jeu.getJoueur() + 1) % joueurs.length] + IHMStrings.Gagne);
 				System.out.println(IHMStrings.Recommencer);
-				reponse = sc.next().toLowerCase();
-				if(reponse.equals("yes") || reponse.equals("oui") || reponse.equals("ok") || reponse.equals("oui je veux"))
-				{
+				reponse = sc.next().toUpperCase();
+				if(reponse.equals(IHMStrings.SaisieOui.toString()))
 					recommencer(sc);
-				}
 			}
 		}
 	}
