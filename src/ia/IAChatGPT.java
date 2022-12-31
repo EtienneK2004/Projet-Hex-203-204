@@ -54,7 +54,7 @@ public class IAChatGPT extends IAHex{
 	
 	
 	public static int evaluerBoard(int[][] board, int player) {
-	    // On commence par initialiser la valeur à 0
+	    // On commence par initialiser la valeur ï¿½ 0
 	    int value = 0;
 
 	    // On parcourt toutes les cases du plateau
@@ -83,16 +83,16 @@ public class IAChatGPT extends IAHex{
 	                // On ajoute la valeur de la case adjacente au total
 	                value += getAdjacentCaseValue(board, x, y, player);
 	            } else if (board[x][y] != 0) {
-	                // Si la case adjacente appartient à l'adversaire, on soustrait sa valeur au total
+	                // Si la case adjacente appartient ï¿½ l'adversaire, on soustrait sa valeur au total
 	                value -= getAdjacentCaseValue(board, x, y, player) / 2;
 	            }
 	        }
 	    }
-	    // On ajoute une valeur supplémentaire si la case est adjacente à un côté du plateau
+	    // On ajoute une valeur supplï¿½mentaire si la case est adjacente ï¿½ un cï¿½tï¿½ du plateau
 	    if (isAdjacentToSide(board, i, j)) {
 	        value += 1;
 	    }
-	    // On ajoute une valeur supplémentaire si la case est éloignée des coins du plateau
+	    // On ajoute une valeur supplï¿½mentaire si la case est ï¿½loignï¿½e des coins du plateau
 	    value += IAChatGPT.getDistanceToClosestCorner(board, i, j);
 	    // On retourne la valeur finale
 	    return value;
@@ -101,18 +101,18 @@ public class IAChatGPT extends IAHex{
 	public static int getAdjacentCaseValue(int[][] board, int i, int j, int player) {
 	    // Cette fonction renvoie la valeur d'une case adjacente en fonction de sa position sur le plateau
 	    int value = 0;
-	    // On vérifie la position de la case sur le plateau
+	    // On vï¿½rifie la position de la case sur le plateau
 	    if (i == 0 || i == board.length - 1) {
-	        // Si la case est sur le bord haut ou bas du plateau, elle a une valeur plus élevée
+	        // Si la case est sur le bord haut ou bas du plateau, elle a une valeur plus ï¿½levï¿½e
 	        value += 2;
 	    }
 	    if (j == 0 || j == board[i].length - 1) {
-	        // Si la case est sur le bord gauche ou droit du plateau, elle a une valeur plus élevée
+	        // Si la case est sur le bord gauche ou droit du plateau, elle a une valeur plus ï¿½levï¿½e
 	        value += 2;
 	    }
-	    // On vérifie si la case est adjacente à une case appartenant au joueur courant
+	    // On vï¿½rifie si la case est adjacente ï¿½ une case appartenant au joueur courant
 	    if (isAdjacentToPlayer(board, player, i, j)) {
-	        // Si oui, on ajoute une valeur supplémentaire
+	        // Si oui, on ajoute une valeur supplï¿½mentaire
 	        value++;
 	    }
 	    // On retourne la valeur finale
@@ -120,35 +120,35 @@ public class IAChatGPT extends IAHex{
 	}
 
 	public static boolean isAdjacentToSide(int[][] board, int i, int j) {
-	    // Cette fonction vérifie si la case pass
-		// Cette fonction vérifie si la case passée en paramètre est adjacente à un côté du plateau
+	    // Cette fonction vï¿½rifie si la case pass
+		// Cette fonction vï¿½rifie si la case passï¿½e en paramï¿½tre est adjacente ï¿½ un cï¿½tï¿½ du plateau
 
 		// On parcourt les cases adjacentes
 		for (int x = Math.max(0, i - 1); x <= Math.min(board.length - 1, i + 1); x++) {
 		    for (int y = Math.max(0, j - 1); y <= Math.min(board[i].length - 1, j + 1); y++) {
-		        // Si la case adjacente est vide et qu'elle se trouve sur un bord du plateau, la case courante est adjacente à un côté du plateau
+		        // Si la case adjacente est vide et qu'elle se trouve sur un bord du plateau, la case courante est adjacente ï¿½ un cï¿½tï¿½ du plateau
 		        if (board[x][y] == 0 && (x == 0 || x == board.length - 1 || y == 0 || y == board[i].length - 1)) {
 		            return true;
 		        }
 		    }
 		}
-		// Si aucune case adjacente n'est vide et sur un bord du plateau, la case courante n'est pas adjacente à un côté du plateau
+		// Si aucune case adjacente n'est vide et sur un bord du plateau, la case courante n'est pas adjacente ï¿½ un cï¿½tï¿½ du plateau
 		return false;
 	}
 	
 	public static boolean isAdjacentToPlayer(int[][] board, int player, int i, int j) {
-	    // Cette fonction vérifie si la case passée en paramètre est adjacente à une case appartenant au joueur passé en paramètre
+	    // Cette fonction vï¿½rifie si la case passï¿½e en paramï¿½tre est adjacente ï¿½ une case appartenant au joueur passï¿½ en paramï¿½tre
 
 	// On parcourt les cases adjacentes
 	for (int x = Math.max(0, i - 1); x <= Math.min(board.length - 1, i + 1); x++) {
 	    for (int y = Math.max(0, j - 1); y <= Math.min(board[i].length - 1, j + 1); y++) {
-	        // Si la case adjacente appartient au joueur, la case courante est adjacente à une case appartenant au joueur
+	        // Si la case adjacente appartient au joueur, la case courante est adjacente ï¿½ une case appartenant au joueur
 	        if (board[x][y] == player) {
 	            return true;
 	        }
 	    }
 	}
-	// Si aucune case adjacente n'appartient au joueur, la case courante n'est pas adjacente à une case appartenant au joueur
+	// Si aucune case adjacente n'appartient au joueur, la case courante n'est pas adjacente ï¿½ une case appartenant au joueur
 	return false;
 	}
 	
@@ -160,7 +160,7 @@ public class IAChatGPT extends IAHex{
 	        for (int j = 0; j < board[i].length; j += board[i].length - 1) {
 	            // On calcule la distance entre la case et le coin courant
 	            int distance = Math.abs(x - i) + Math.abs(y - j);
-	            // On met à jour la distance minimale si nécessaire
+	            // On met ï¿½ jour la distance minimale si nï¿½cessaire
 	            minDistance = Math.min(minDistance, distance);
 	        }
 	    }
@@ -178,31 +178,31 @@ public class IAChatGPT extends IAHex{
         // On parcourt toutes les cases du plateau
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                // Si la case est vide, on vérifie si le coup joué sur cette case est optimal
+                // Si la case est vide, on vï¿½rifie si le coup jouï¿½ sur cette case est optimal
                 if (board[i][j] == 0) {
-                    // On simule le coup en plaçant notre pion sur cette case
+                    // On simule le coup en plaï¿½ant notre pion sur cette case
                     board[i][j] = player;
-                    // On appelle l'algorithme Minimax pour évaluer l'état du plateau après ce coup
+                    // On appelle l'algorithme Minimax pour ï¿½valuer l'ï¿½tat du plateau aprï¿½s ce coup
                     int evaluation = minimax(board, player, Integer.MIN_VALUE, Integer.MAX_VALUE, false, MAX_RECURSION);
-                    // Si l'évaluation de ce coup est meilleure que les précédents, on met à jour les coordonnées du meilleur coup
+                    // Si l'ï¿½valuation de ce coup est meilleure que les prï¿½cï¿½dents, on met ï¿½ jour les coordonnï¿½es du meilleur coup
                     //System.out.println((char)('A'+i)+""+(j+1)+" "+evaluation);
                     if (evaluation > bestEvaluation) {
                         bestRow = i;
                         bestCol = j;
                         bestEvaluation = evaluation;
                     }
-                    // On annule le coup en remettant la case à vide
+                    // On annule le coup en remettant la case ï¿½ vide
                     board[i][j] = 0;
                 }
             }
         }
 
-        // On renvoie les coordonnées du meilleur coup trouvé
+        // On renvoie les coordonnï¿½es du meilleur coup trouvï¿½
         return new int[] {bestRow, bestCol};
     }
     
     private static int minimax(int[][] board, int player, int alpha, int beta, boolean maximizingPlayer, int rec) {
-        // Si l'un des joueurs a gagné, on renvoie l'évaluation du plateau correspondante
+        // Si l'un des joueurs a gagnï¿½, on renvoie l'ï¿½valuation du plateau correspondante
         if (checkWin(board, player)) {
             return Integer.MAX_VALUE;
         } else if (checkWin(board, -player)) {
@@ -212,32 +212,32 @@ public class IAChatGPT extends IAHex{
         
         
 
-        // Si toutes les cases du plateau sont occupées
+        // Si toutes les cases du plateau sont occupï¿½es
         if (isFull(board)) {
             return evaluerBoard(board, player)-5;
         }
         else if(rec <= 0) {
         	return evaluerBoard(board, player);
         }
-        // Si c'est au tour du joueur maximal de jouer (notre joueur), on cherche le coup qui donne l'évaluation la plus élevée
+        // Si c'est au tour du joueur maximal de jouer (notre joueur), on cherche le coup qui donne l'ï¿½valuation la plus ï¿½levï¿½e
         if (maximizingPlayer) {
             int bestEvaluation = Integer.MIN_VALUE;
 
             // On parcourt toutes les cases du plateau
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board[i].length; j++) {
-                    // Si la case est vide, on simule le coup joué sur cette case
+                    // Si la case est vide, on simule le coup jouï¿½ sur cette case
                     if (board[i][j] == 0) {
                         board[i][j] = player;
-                        // On appelle récursivement minimax pour évaluer l'état du plateau après ce coup
+                        // On appelle rï¿½cursivement minimax pour ï¿½valuer l'ï¿½tat du plateau aprï¿½s ce coup
                         int evaluation = minimax(board, player, alpha, beta, false, rec-1);
-                        // On met à jour l'évaluation la plus élevée trouvée jusqu'à présent
+                        // On met ï¿½ jour l'ï¿½valuation la plus ï¿½levï¿½e trouvï¿½e jusqu'ï¿½ prï¿½sent
                         bestEvaluation = Math.max(bestEvaluation, evaluation);
-                        // On met à jour alpha (borne supérieure de l'intervalle de recherche)
+                        // On met ï¿½ jour alpha (borne supï¿½rieure de l'intervalle de recherche)
                         alpha = Math.max(alpha, bestEvaluation);
-                        // On annule le coup en remettant la case à vide
+                        // On annule le coup en remettant la case ï¿½ vide
                         board[i][j] = 0;
-                        // Si beta (borne inférieure de l'intervalle de recherche) est inférieure à alpha, on arrête la recherche car aucun autre coup ne pourra améliorer l'évaluation
+                        // Si beta (borne infï¿½rieure de l'intervalle de recherche) est infï¿½rieure ï¿½ alpha, on arrï¿½te la recherche car aucun autre coup ne pourra amï¿½liorer l'ï¿½valuation
                         if (beta <= alpha) {
                             break;
                         }
@@ -247,25 +247,25 @@ public class IAChatGPT extends IAHex{
 
             return bestEvaluation;
         }
-        // Si c'est au tour du joueur minimal de jouer (l'adversaire), on cherche le coup qui donne l'évaluation la plus basse
+        // Si c'est au tour du joueur minimal de jouer (l'adversaire), on cherche le coup qui donne l'ï¿½valuation la plus basse
         else {
             int bestEvaluation = Integer.MAX_VALUE;
 
             // On parcourt toutes les cases du plateau
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board[i].length; j++) {
-                    // Si la case est vide, on simule le coup joué sur cette case
+                    // Si la case est vide, on simule le coup jouï¿½ sur cette case
                     if (board[i][j] == 0) {
                         board[i][j] = -player;
-                        // On appelle récursivement minimax pour évaluer l'état du plateau après ce coup
+                        // On appelle rï¿½cursivement minimax pour ï¿½valuer l'ï¿½tat du plateau aprï¿½s ce coup
                         int evaluation = minimax(board, player, alpha, beta, false, rec-1);
-                        // On met à jour l'évaluation la plus basse trouvée jusqu'à présent
+                        // On met ï¿½ jour l'ï¿½valuation la plus basse trouvï¿½e jusqu'ï¿½ prï¿½sent
                         bestEvaluation = Math.min(bestEvaluation, evaluation);
-                        // On met à jour beta (borne inférieure de l'intervalle de recherche)
+                        // On met ï¿½ jour beta (borne infï¿½rieure de l'intervalle de recherche)
                         beta = Math.min(beta, bestEvaluation);
-                        // On annule le coup en remettant la case à vide
+                        // On annule le coup en remettant la case ï¿½ vide
                         board[i][j] = 0;
-                        // Si beta est inférieure à alpha, on arrête la recherche car aucun autre coup ne pourra améliorer l'évaluation
+                        // Si beta est infï¿½rieure ï¿½ alpha, on arrï¿½te la recherche car aucun autre coup ne pourra amï¿½liorer l'ï¿½valuation
                         if (beta <= alpha) {
                             break;
                         }
@@ -293,7 +293,7 @@ public class IAChatGPT extends IAHex{
 	        for (int j = 0; j < board[i].length; j++) {
 	            // Si la case appartient au joueur courant
 	            if (board[i][j] == player) {
-	                // On vérifie si le joueur a gagné en parcourant les cases adjacentes
+	                // On vï¿½rifie si le joueur a gagnï¿½ en parcourant les cases adjacentes
 	                if (checkAdjacent(board, player, i, j, new boolean[board.length][board[i].length], 0)) {
 	                    return true;
 	                }
@@ -304,15 +304,15 @@ public class IAChatGPT extends IAHex{
 	}
 
 	public static boolean checkAdjacent(int[][] board, int player, int i, int j, boolean[][] visited, int direction) {
-	    // Cette fonction récursive vérifie si le joueur a gagné en parcourant les cases adjacentes
+	    // Cette fonction rï¿½cursive vï¿½rifie si le joueur a gagnï¿½ en parcourant les cases adjacentes
 	    // Elle prend en compte la direction dans laquelle le joueur se dirige (haut, bas, gauche, droite ou diagonale) pour savoir quelles cases sont adjacentes
-	    // Elle utilise un tableau de booléens pour marquer les cases déjà visitées afin de ne pas boucler indéfiniment dans le cas où le plateau est cyclique
+	    // Elle utilise un tableau de boolï¿½ens pour marquer les cases dï¿½jï¿½ visitï¿½es afin de ne pas boucler indï¿½finiment dans le cas oï¿½ le plateau est cyclique
 
 	    // Si la case courante appartient au joueur courant
 	    if (board[i][j] == player) {
-	        // On marque la case comme visitée
+	        // On marque la case comme visitï¿½e
 	        visited[i][j] = true;
-	        // On vérifie si le joueur a gagné en parcourant les cases adjacentes dans chaque direction
+	        // On vï¿½rifie si le joueur a gagnï¿½ en parcourant les cases adjacentes dans chaque direction
 	        if (direction != 1 && i > 0 && !visited[i - 1][j]) {
 	            // On parcourt la case du haut
 	            if (checkAdjacent(board, player, i - 1, j, visited, 2)) {
@@ -338,25 +338,25 @@ public class IAChatGPT extends IAHex{
 	            }
 	        }
 	        /*if (direction != 5 && i > 0 && j > 0 && !visited[i - 1][j - 1]) {
-	            // On parcourt la case en diagonale à gauche en haut
+	            // On parcourt la case en diagonale ï¿½ gauche en haut
 	            if (checkAdjacent(board, player, i - 1, j - 1, visited, 6)) {
 	                return true;
 	            }
 	        }
 	        if (direction != 6 && i < board.length - 1 && j < board[i].length - 1 && !visited[i + 1][j + 1]) {
-	            // On parcourt la case en diagonale à droite en bas
+	            // On parcourt la case en diagonale ï¿½ droite en bas
 	            if (checkAdjacent(board, player, i + 1, j + 1, visited, 5)) {
 	                return true;
 	            }
 	        }*/
 	        if (direction != 7 && i > 0 && j < board[i].length - 1 && !visited[i - 1][j + 1]) {
-	            // On parcourt la case en diagonale à droite en haut
+	            // On parcourt la case en diagonale ï¿½ droite en haut
 	            if (checkAdjacent(board, player, i - 1, j + 1, visited, 8)) {
 	                return true;
 	            }
 	        }
 	        if (direction != 8 && i < board.length - 1 && j > 0 && !visited[i + 1][j - 1]) {
-	            // On parcourt la case en diagonale à gauche en bas
+	            // On parcourt la case en diagonale ï¿½ gauche en bas
 	            if (checkAdjacent(board, player, i + 1, j - 1, visited, 7)) {
 	                return true;
 	            }
@@ -365,6 +365,11 @@ public class IAChatGPT extends IAHex{
         // Si aucune case adjacente n'appartient au joueur, on retourne false
         return false;
 	    
+	}
+
+	@Override
+	public boolean correspond(int n) {
+		return n==1;
 	}
 
 

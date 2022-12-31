@@ -19,5 +19,10 @@ public class IARandom extends IAHex {
 		Random rand = new Random();
 		return possible.get(rand.nextInt(possible.size()));
 	}
+	
+	@Override
+	public boolean correspond(int n) {
+		return n==0;
+	}
 
 }
