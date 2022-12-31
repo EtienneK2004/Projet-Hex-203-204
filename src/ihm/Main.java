@@ -48,6 +48,7 @@ public class Main {
 		boolean noGagnant = false;
 		while(noGagnant == false) {
 			if (noGagnant = tour(sc)) {
+				System.out.println(jeu);
 				System.out.println(joueurs[(jeu.getJoueur() + 1) % joueurs.length] + IHMStrings.Gagne);
 				System.out.println(IHMStrings.Recommencer);
 				reponse = sc.next().toUpperCase();
