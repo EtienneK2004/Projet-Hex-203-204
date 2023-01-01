@@ -4,6 +4,7 @@ package ihm;
 
 import java.util.Scanner;
 
+import ia.IAHex;
 import regles.Hex;
 
 public class Main {
@@ -72,7 +73,17 @@ public class Main {
 		boolean valide = false;
 		String coup = "";
 		while(!valide) {
-			coup = sc.next();
+			if(joueurs[jeu.getJoueur()].equals("1")) {
+				IAHex ia = IAHex.getIA(0);
+				coup = ia.getCoup(jeu.getPlateau());
+			}
+			else if(joueurs[jeu.getJoueur()].equals("2")) {
+				IAHex ia = IAHex.getIA(1);
+				coup = ia.getCoup(jeu.getPlateau());
+			}
+			else {
+				coup = sc.next();
+			}
 			valide = jeu.estValide(coup);
 			if(!valide) System.out.println(IHMStrings.CaseInvalide);
 		}
