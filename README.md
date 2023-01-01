@@ -55,9 +55,9 @@ Les classes testées sont :
 ## <ins> <p class="titre">IV - Tâches à accomplir pour modifier certaines règles</p> </ins>
 &ensp;&ensp;&ensp;&ensp; Certaines options peuvent être ajouter en faisait certaines intéractions à des moments très spécifiques.
 
-Nous pouvons faire jouer des ordinateurs plus ou moins fortes. Pour faire jouer une IA au lieu d'un joueur humain, lorsque nous devons entrer le nom d'un des joueurs, nous saisissons un chiffre au lieu d'une chaine de caractères. Nous avons également développé deux niveaux de difficultés d'IA :
-1. En saisissant "1" comme nom de joueur : une IA qui tire des coups aléatoires.
-1. En saisissant "2" comme nom de joueur : une IA développée avec ChatGPT.
+Nous pouvons faire jouer des ordinateurs plus ou moins fortes. Pour faire jouer une IA au lieu d'un joueur humain, lorsque nous devons entrer le nom d'un des joueurs, nous saisissons un chiffre au lieu d'une chaine de caractères. Nous avons pour l'instant développé deux niveaux de difficultés d'IA :
+1. En saisissant "0" comme nom de joueur : une IA qui tire des coups aléatoires.
+1. En saisissant "1" comme nom de joueur : une IA développée avec ChatGPT.
 
 Ainsi, nous pouvons faire jouer un humain contre un humain, un humain contre un ordinateur et un ordinateur contre un ordinateur.
 

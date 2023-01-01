@@ -15,7 +15,8 @@ enum IHMStrings {
 	Gagne(", vous avez gagné !"),
 	Recommencer("La partie est finie, voulez-vous recommencer ? (O/N)"),
 	
-	SaisieOui("O")
+	SaisieOui("O"),
+	joueIA("L'IA a joué ")
 	;
 	private String message;
 	IHMStrings(String string) {

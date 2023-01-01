@@ -46,9 +46,9 @@ public class Main {
 	
 	private static void jouer(Scanner sc) {
 		jeu = new Hex(TAILLE);
-		boolean noGagnant = false;
-		while(noGagnant == false) {
-			if (noGagnant = tour(sc)) {
+		boolean finie = false;
+		while(finie == false) {
+			if (finie = tour(sc)) {
 				System.out.println(jeu);
 				System.out.println(joueurs[(jeu.getJoueur() + 1) % joueurs.length] + IHMStrings.Gagne);
 				System.out.println(IHMStrings.Recommencer);
@@ -67,18 +67,23 @@ public class Main {
 		jouer(sc);
 	}
 	
+	private static boolean isIA(String joueur) {
+		return joueurs[jeu.getJoueur()].matches("[0-9]+");
+	}
+	
 	private static boolean tour(Scanner sc) {
 		System.out.println(jeu);
-		System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Jouer);
+		if(!isIA(joueurs[jeu.getJoueur()]))
+			System.out.println(joueurs[jeu.getJoueur()] + IHMStrings.Jouer);
 		boolean valide = false;
 		String coup = "";
 		while(!valide) {
-			if(joueurs[jeu.getJoueur()].equals("1")) {
-				IAHex ia = IAHex.getIA(0);
-				coup = ia.getCoup(jeu.getPlateau());
-			}
-			else if(joueurs[jeu.getJoueur()].equals("2")) {
-				IAHex ia = IAHex.getIA(1);
+			
+			
+			
+			if(isIA(joueurs[jeu.getJoueur()])) {
+				int IANum = Integer.parseInt(joueurs[jeu.getJoueur()]);
+				IAHex ia = IAHex.getIA(IANum);
 				coup = ia.getCoup(jeu.getPlateau());
 			}
 			else {
@@ -88,6 +93,8 @@ public class Main {
 			if(!valide) System.out.println(IHMStrings.CaseInvalide);
 		}
 		jeu.jouerCoup(coup);
+		if(!isIA(joueurs[jeu.getJoueur()]))
+			System.out.println(IHMStrings.joueIA + coup);
 		return jeu.gagnant() == jeu.getJoueur();
 	}
 

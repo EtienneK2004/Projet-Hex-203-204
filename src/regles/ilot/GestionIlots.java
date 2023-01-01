@@ -14,7 +14,6 @@ public class GestionIlots {
 	}
 	
 	public void ajouterCase(int x, int y, int joueur) {
-		System.out.println(joueur);
 		Ilot c = new CaseHexa(x, y, joueur);
 		boolean adj = false;
 		for(Ilot i : ilots) {
