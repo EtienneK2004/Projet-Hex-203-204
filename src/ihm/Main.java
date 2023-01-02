@@ -12,7 +12,7 @@ public class Main {
 	private static int taille;
 	private static String[] joueurs;
 	private static String reponse;
-	private static int[] bordMax = {1, 26}; 
+	private static int[] bordMax = {1, 9}; 
 	
 	public static void main(String[] args) {
 		joueurs = new String[2]; 
