@@ -92,9 +92,10 @@ public class Main {
 			valide = jeu.estValide(coup);
 			if(!valide) System.out.println(IHMStrings.CaseInvalide);
 		}
-		jeu.jouerCoup(coup);
-		if(!isIA(joueurs[jeu.getJoueur()]))
+		if(isIA(joueurs[jeu.getJoueur()]))
 			System.out.println(IHMStrings.joueIA + coup);
+		jeu.jouerCoup(coup);
+		
 		return jeu.gagnant() == jeu.getJoueur();
 	}
 
