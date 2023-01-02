@@ -8,6 +8,7 @@ enum IHMStrings {
 	Regle1("Le premier à jouer c'est le joueur 1, si vous voulez jouer contre une IA il suffit d'ajouter un chiffre, si vous voulez que 2 IA s'affronte mettez un chiffre par joueur"),
 	Regle2("Les mouvements se succéderont à tour de rôle entre les deux joueurs. Les mouvements ne consistent qu'à ajouter de nouvelles pièces sur le plateau, une par tour. Les pièces déjà déposées sur le plateau ne peuvent pas être déplacées."),
 	Regle3("Les joueurs continueront à ajouter des pièces au tableau jusqu´à ce qu´un d´eux emporte la partie."),
+	DmdTaille("Quelle taille du plateau préférerez-vous ? (Entre 1 et 26 inclus)"),
 	NomJoueur1("Quel est le nom du premier joueur ?"),
 	NomJoueur2("Quel est le nom du deuxième joueur ?"),
 	Jouer(", c'est à vous de jouer !"),

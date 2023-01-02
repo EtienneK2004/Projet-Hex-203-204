@@ -9,9 +9,10 @@ import regles.Hex;
 
 public class Main {
 	private static Hex jeu;
-	private static final int TAILLE=4;
+	private static int taille;
 	private static String[] joueurs;
 	private static String reponse;
+	private static int[] bordMax = {1, 26}; 
 	
 	public static void main(String[] args) {
 		joueurs = new String[2]; 
@@ -37,15 +38,20 @@ public class Main {
 				System.out.println(IHMStrings.Regle3);
 			}
 		}
+		
+		do {
+			System.out.println(IHMStrings.DmdTaille);
+			taille = sc.nextInt();
+		} while(taille < bordMax[0] && taille > bordMax[1]);
+		
 		System.out.println(IHMStrings.NomJoueur1);
 		joueurs[0] = sc.next();
 		System.out.println(IHMStrings.NomJoueur2);
 		joueurs[1] = sc.next();
-
 	}
 	
 	private static void jouer(Scanner sc) {
-		jeu = new Hex(TAILLE);
+		jeu = new Hex(taille);
 		boolean finie = false;
 		while(finie == false) {
 			if (finie = tour(sc)) {
