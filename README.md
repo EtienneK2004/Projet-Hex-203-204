@@ -29,7 +29,7 @@ Steven Tea <br/>
 <a id="intro"></a>
 
 ## <ins> <p class="titre">I - Introduction</p> </ins>
-&ensp;&ensp;&ensp;&ensp; Globalement, nous avons pu réussir à intégrer et faire fonctionner pratiquement tout ce qui a été demandé. Cependant, il nous n'avons pas pu d'intégrer une interface Homme-Machine avec une interface graphique. Nous comptions à la base voulut le faire avec la bibliothèque graphique JFrame, mais par faute de temps à cause d'autres projets et l'apprentissage de la bibliothèque, nous n'avions malheureusement pas eu le temps de l'intégrer.
+&ensp;&ensp;&ensp;&ensp; Globalement, nous avons pu réussir à intégrer et faire fonctionner pratiquement tout ce qui a été demandé. Cependant, notre plateau est limité à une taille maximale de 9, car au delà, nous avons eu des problèmes de saisies qui prenait en compte uniquement 2 caractères (une lettre et un chiffre), de même pour les IA qui étaient conçu pour avoir un getCoup() à 2 caractères. Nous n'avons également pas pu d'intégrer une interface Homme-Machine avec une interface graphique. Nous comptions à la base voulut le faire avec la bibliothèque graphique JFrame, mais par faute de temps à cause d'autres projets et l'apprentissage de la bibliothèque, nous n'avions malheureusement pas eu le temps de l'intégrer.
 
 <a id="archi"></a>
 
@@ -60,7 +60,7 @@ Nous pouvons faire jouer des ordinateurs plus ou moins forts. Pour faire jouer u
 1. En saisissant "1" comme nom de joueur : une IA développée avec ChatGPT.
 
 Ainsi, nous pouvons faire jouer un humain contre un humain, un humain contre un ordinateur et un ordinateur contre un ordinateur.
-Nous pouvons également modifier la taille du Plateau. Lors de la deuxième saisie, la taille du plateau est demandée à l'utilisateur. La taille doit être comprise entre 1 et 26 pour que le plateau soit légal.
+Nous pouvons également modifier la taille du Plateau. Lors de la deuxième saisie, la taille du plateau est demandée à l'utilisateur. La taille doit être comprise entre 1 et 9 pour que le plateau soit légal.
 
 <a id="bilan"></a>
 
@@ -73,4 +73,4 @@ Nous pouvons également modifier la taille du Plateau. Lors de la deuxième sais
 &ensp;&ensp;&ensp;&ensp; Afin de gérer les cases hexagonales, nous avons été assez fiers d'avoir pu utiliser le design pattern Composite, que nous avons vu en cours, pour faire la gestion en lots de cases. De plus, grâce à cela, nous avons pu réussir à faire fonctionner la méthode gagnant() de la classe Hex. Nous avons également essayé du mieux que nous pouvons pour que notre programme respecte les principes SOLID.
 
 ### 3) Ce qui peut être amélioré
-&ensp;&ensp;&ensp;&ensp; Pour ce projet, nous aurions pu ajouter développer une interface graphique pour le jeu et ainsi pouvoir choisir si l'utilisateur joue en mode console ou en mode graphique.
+&ensp;&ensp;&ensp;&ensp; Pour ce projet, nous aurions pu ajouter développer une interface graphique pour le jeu et ainsi pouvoir choisir si l'utilisateur joue en mode console ou en mode graphique. Nous aurions également pu faire adapter notre code pour qu'il puisse permettre de taille de plateau plus grande, jusque 26 lignes et colonnes.
