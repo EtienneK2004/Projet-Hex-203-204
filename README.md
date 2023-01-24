@@ -11,6 +11,8 @@ Tony Zheng <br/>
 Patrick Wu <br/>
 Steven Tea <br/>
 
+MZ: Note 15/20 au groupe. La note de l'exo du DST ne sera prise en compte que si elle est supérieure donc cette note ne peut pas baisser.
+
 <div dir="rtl"> Décembre 2022 </div>
 
 <hr>
